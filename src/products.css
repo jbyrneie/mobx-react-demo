@@ -1,0 +1,20 @@
+
+.list-wrap{
+  background: #fff;
+  font-size: 1.2em;
+}
+
+/* Desktop */
+@media (min-width: 800px) {
+  #items-list{
+    padding: 30px
+  }
+  .list-wrap{
+    margin: 0 auto;
+    max-width: 940px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+  }
+}
