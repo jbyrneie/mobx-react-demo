@@ -12,7 +12,7 @@ class IFrame extends Component {
     return (
       <div>
       <AppBar backArrow={true}/>
-        <Iframe ref='iframe' url='http://services.glgresearch.com/referral?source=jack' style={style} frameBorder={0}/>
+        <Iframe ref='iframe' url='https://services.glgresearch.com/referral?source=jack' style={style} frameBorder={0}/>
       </div>
     );
   }
