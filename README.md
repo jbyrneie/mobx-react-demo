@@ -25,8 +25,6 @@ A few things to note
 The demo is deployed to Heroku and can be accessed at https://pure-fjord-81149.herokuapp.com/
 ```
 
-To understand more about React/Mobx/Material Ui and how the demo was created, continue reading below
-
 ## Clone and run the demo locally
 ```sh
 git clone https://github.com/jbyrneie/mobx-react-demo.git
