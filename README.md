@@ -7,6 +7,17 @@ A few things to note
 - webpack runs in the background and rebuilds the App in dev mode when files are changed
 - the 'npm run build' task creates a build/ folder, optimizes and minifies the code and creates one JS and CSS file for the App
 
+## To run the demo
+```sh
+git clone 
+cd mobx-react-demo
+npm install
+source ./.env && npm start
+
+Browse to http://localhost:9988
+```
+To understand more about React/Mobx/Material Ui and how the demo was created, continue reading below
+
 ## Components
 - ReactJS: A set of NPM packages for building User Interfaces, for details go to https://facebook.github.io/react/ 
 - Mobx: An NPM package that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). In english, you create data models (Stores) for your data, make them "observable" and "inject" the the Stores into the Components in which you wish to use them. When a Store is updated, the "observing" components will rerender. For more details go to https://mobx.js.org/
