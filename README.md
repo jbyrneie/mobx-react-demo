@@ -90,7 +90,7 @@ aaa
 ## Material UI
 Material-UI components require a theme to be provided. The quickest way to get up and running is by using the MuiThemeProvider to inject the theme into your application context. After that, you can use any of the components (Buttons, Tables, Grids etc)
 
-The /<MuiThemeProvider /> Component is injected in the App entry point /src/index.js as follows
+The \<MuiThemeProvider \> Component is injected in the App entry point /src/index.js as follows
 
 ```
 ReactDOM.render(
