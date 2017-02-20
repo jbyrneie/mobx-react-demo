@@ -4,7 +4,7 @@ This repo is a simple App written in React, Mobx and Material UI.
 ## Components
 - ReactJS: A set of NPM packages for building User Interfaces, for details go to https://facebook.github.io/react/ 
 - Mobx: An NPM package that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). In english, you create data models (Stores) for your data and you "observe" the components that use these Stores. When a Store is updated, the "observing" components will rerender. For more details go to https://mobx.js.org/
-- Material UI: An NPM package of React Components that implement Google's Material Design. In summary its is a set of components to create Lists, Tables, Buttons, Dialogs, Grids, etc. See https://www.npmjs.com/package/material-ui and http://www.material-ui.com/#/get-started/required-knowledge (for the Components). Dont mix it up with https://material.io/, this is just a Google Design Site and not the implementation.
+- Material UI: An NPM package of React Components that implement Google's Material Design. In summary its is a set of components to create Lists, Tables, Buttons, Dialogs, Grids, etc. See https://www.npmjs.com/package/material-ui and http://www.material-ui.com/#/components/app-bar (for the Components). Dont mix it up with https://material.io/, this is just a Google Design Site and not the implementation.
 
 ## Creating a React App
 There is a good tutorial at https://github.com/facebookincubator/create-react-app, the following builds a standalone App. The nice thing is that it is built using Webpack and creates a boilerplate App. Have a look at the package.json file, you will see scripts to start the App in "Dev" mode or build the App for "Production"
@@ -18,7 +18,7 @@ npm start
 ```
 
 This will create a directory called `my-app` inside the current folder.<br>
-Inside that directory, it will generate the initial project structure and install the transitive dependencies:
+Inside that directory, it will generate the initial project structure and install the required dependencies:
 
 ```
 my-app/
@@ -84,4 +84,34 @@ ReactDOM.render(
 
 The Mobx Routes are defined in /src/views.js
 
+## Mobx Stores
+aaa
 
+## Material UI
+Material-UI components require a theme to be provided. The quickest way to get up and running is by using the MuiThemeProvider to inject the theme into your application context. After that, you can use any of the components (Buttons, Tables, Grids etc)
+
+The /<MuiThemeProvider /> Component is injected in the App entry point /src/index.js as follows
+
+```
+ReactDOM.render(
+  <Provider store={store}>
+    <MuiThemeProvider>
+      <div>
+        <section>
+          <MobxRouter/>
+        </section>
+      </div>
+    </MuiThemeProvider>
+  </Provider>
+  ,document.getElementById('root')
+)
+```
+An example of a Material UI component is in src/components/appBar.js. This is the App Bar at the top of some pages. The reason this component is in a seprate file is that it is included in some components (src/components/productList.jst) and not in others (src/components/productSummary.js) and also has optional attributes (backArrow={true})
+
+```
+  <AppBar
+        title="My Products Store"
+        iconElementLeft={leftIcon}
+        onLeftIconButtonTouchTap={this.clickLeftIcon.bind(this) }
+      />
+```
