@@ -84,9 +84,6 @@ ReactDOM.render(
 
 The Mobx Routes are defined in /src/views.js
 
-## Mobx Stores
-aaa
-
 ## Material UI
 Material-UI components require a theme to be provided. The quickest way to get up and running is by using the MuiThemeProvider to inject the theme into your application context. After that, you can use any of the components (Buttons, Tables, Grids etc)
 
@@ -115,3 +112,11 @@ An example of a Material UI component is in src/components/appBar.js. This is th
         onLeftIconButtonTouchTap={this.clickLeftIcon.bind(this) }
       />
 ```
+## Mobx Stores
+Stores can be found in any Flux architecture and can be compared a bit with controllers in the MVC pattern. The main responsibility of stores is to move logic and state out of your components into a standalone testable unit that can be used in both frontend and backend JavaScript.
+
+Most applications benefit from having at least two stores. One for the UI state (appStore) and one or more for the domain state (productStore and productsStore).
+
+The appStore contains App wide state, such as Session information, Information that affects the UI globally, etc
+The domain state stores hold the data your application is all about. Product Lists, product item, etc
+
