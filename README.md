@@ -1,9 +1,15 @@
 # A demo App written in React/Mobx/Material UI
 This repo is a simple App written in React, Mobx and Material UI.
 
+A few things to note
+- there is very little CSS in the App
+- components and css are imported rather than included
+- webpack runs in the background and rebuilds the App in dev mode when files are changed
+- the 'npm run build' task creates a build/ folder, optimizes and minifies the code and creates one JS and CSS file for the App
+
 ## Components
 - ReactJS: A set of NPM packages for building User Interfaces, for details go to https://facebook.github.io/react/ 
-- Mobx: An NPM package that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). In english, you create data models (Stores) for your data and you "observe" the components that use these Stores. When a Store is updated, the "observing" components will rerender. For more details go to https://mobx.js.org/
+- Mobx: An NPM package that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). In english, you create data models (Stores) for your data, make them "observable" and "inject" the the Stores into the Components in which you wish to use them. When a Store is updated, the "observing" components will rerender. For more details go to https://mobx.js.org/
 - Material UI: An NPM package of React Components that implement Google's Material Design. In summary its is a set of components to create Lists, Tables, Buttons, Dialogs, Grids, etc. See https://www.npmjs.com/package/material-ui and http://www.material-ui.com/#/components/app-bar (for the Components). Dont mix it up with https://material.io/, this is just a Google Design Site and not the implementation.
 
 ## Creating a React App
@@ -119,4 +125,22 @@ Most applications benefit from having at least two stores. One for the UI state 
 
 The appStore contains App wide state, such as Session information, Information that affects the UI globally, etc
 The domain state stores hold the data your application is all about. Product Lists, product item, etc
+
+A Store is a Class that extends extendObservable, example /src/stores/productsStore.js
+
+```
+class ProductsStore {
+  constructor() {
+    extendObservable(this, {
+      title: 'MyStore Title Default',
+      products: []
+    });
+  }
+```
+and is "injected" into a Component that wishes to "observe" it, example, /src/components/productList.js
+
+```
+export default inject((allStores) => ({ ...allStores }))(observer(ProductList))
+```
+
 
