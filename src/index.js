@@ -15,20 +15,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 //router
 import views from './views';
 
+import './index.css'
+
 startRouter(views, store);
-
-
-/*
-ReactDOM.render(
-  <Provider store={store}>
-    <div>
-      <h1>{store.appStore.title}</h1>
-      <button onClick={() => store.router.goTo(views.home)}> go home</button>
-      <MobxRouter/>
-    </div>
-  </Provider>, document.getElementById('root')
-)
-*/
 
 ReactDOM.render(
   <Provider store={store}>
