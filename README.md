@@ -9,9 +9,11 @@ A few things to note
 
 ## To run the demo
 ```sh
-git clone 
+git clone https://github.com/jbyrneie/mobx-react-demo.git
+
 cd mobx-react-demo
 npm install
+
 source ./.env && npm start
 
 Browse to http://localhost:9988
