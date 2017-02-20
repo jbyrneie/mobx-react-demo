@@ -15,7 +15,6 @@ class TitleBar extends Component {
   }
 
   render() {
-    console.log('appBar: %s', this.props.backArrow)
     let leftIcon = <IconButton><Menu /></IconButton>
     if (this.props.backArrow)
       leftIcon = <IconButton><ArrowBack /></IconButton>

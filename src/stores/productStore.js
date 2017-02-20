@@ -8,7 +8,6 @@ class ProductStore {
   }
 
   setProduct = action(product => {
-    console.log('setProduct: %s', JSON.stringify(product))
     this.product = product;
   });
 }

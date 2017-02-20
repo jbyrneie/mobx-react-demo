@@ -6,11 +6,9 @@ class AppStore {
       title: 'My Products Store',
       user: undefined
     });
-    console.log('user: %s', this.user)
   }
 
   setTitle = action(title => {
-    console.log('AppStore setTitle: %s', title)
     this.title = title;
   });
 }

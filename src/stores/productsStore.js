@@ -7,25 +7,20 @@ class ProductsStore {
       title: 'MyStore Title Default',
       products: []
     });
-    console.log('ProductsStore title: %s', this.title)
   }
 
   setTitle = action(title => {
     this.title = title;
-    console.log('ProductsStore title: %s', this.title)
   });
 
   addProduct = action(product => {
     this.products.push(product)
-    console.log('products: %s', JSON.stringify(this.products))
   });
 
   getProduct = action(id => {
-    console.log('getProduct products: %s', JSON.stringify(this.products))
     const product = _.find(this.products, function(p) {
       return p.id === id;
     });
-    console.log('getProduct id: %s %s', id, JSON.stringify(product))
     return product
   });
 
