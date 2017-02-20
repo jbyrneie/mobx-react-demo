@@ -51,7 +51,7 @@ ReactDOM.render(
 );
 ```
 
-Effectively this renders the <App /> component when the App is loaded
+Effectively this renders the \<App /\> component when the App is loaded
 
 ## Mobx
 Mobx is used for state management and Client side routing (npm mobx-router).
@@ -65,7 +65,7 @@ home: new Route({
   })
 ```
 
-To use routing, the App renders a MobxRouter Component instead of a React Component (<App />), ie., src/index.js changes to
+To use routing, the App renders a MobxRouter Component instead of a React Component (\<App /\>), ie., src/index.js changes to
 ```
 ReactDOM.render(
   <Provider store={store}>
@@ -80,7 +80,7 @@ ReactDOM.render(
   ,document.getElementById('root')
 )
 ```
-* The  <MuiThemeProvider> component is required for Material UI and is explained below
+* The \<MuiThemeProvider\> component is required for Material UI and is explained below
 
 The Mobx Routes are defined in /src/views.js
 
