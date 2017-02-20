@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "start": "source ./.env && per-env",
+    "start": ". ./.env && per-env",
     "start:development": "react-scripts start",
     "start:production": "npm run build; bin/serve_static",
     "test": "react-scripts test --env=jsdom",
