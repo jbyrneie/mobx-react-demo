@@ -1,4 +1,4 @@
-# A demo App written in React/Mobx/Material UI
+# A demo PWA App written in React/Mobx/Material UI
 This repo is a simple App written in React, Mobx and Material UI. The App is also a PWA (Progressive Web App) which means it can be deployed as a standalone Mobile App and behave as a native App on a Mobile device.
 
 A few things to note
@@ -223,3 +223,6 @@ public/index.html
     </script>
     <div id="root"></div>
 ```
+## How do you know the PWA is setup properly
+- You can use Google Chrome Developer tools Application tab to examine the App
+  - xx
