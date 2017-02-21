@@ -224,5 +224,5 @@ public/index.html
     <div id="root"></div>
 ```
 ## How do you know the PWA is setup properly
-- You can use Google Chrome Developer tools Application tab to examine the App
-  - xx
+- Go to https://pure-fjord-81149.herokuapp.com/, and open Google Chrome Developer tools Application tab to examine the App
+  - 
