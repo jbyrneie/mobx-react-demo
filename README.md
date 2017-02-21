@@ -224,7 +224,9 @@ public/index.html
     <div id="root"></div>
 ```
 ## How do you know the PWA is setup properly
-- Go to https://pure-fjord-81149.herokuapp.com/, and open Google Chrome Developer tools Application tab to examine the App
-  - xx
+- Go to https://pure-fjord-81149.herokuapp.com/, and open Google Chrome Developer tools Application tab to examine the App, you will see
+  - the Manifest details, consisting of the App Name, starting url, icons for various device sizes, etc
+  - the Serviceworker, the file sources and its status
+  - the Cache Storage name and the list of files cached as specified in sw-precache-config.js
   
 ![alt tag](https://github.com/jbyrneie/mobx-react-demo/blob/master/documentation/pwa.png)
