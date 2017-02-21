@@ -1,5 +1,5 @@
-# A demo App written in React/Mobx/Material UI
-This repo is a simple App written in React, Mobx and Material UI.
+# A demo PWA App written in React/Mobx/Material UI
+This repo is a simple App written in React, Mobx and Material UI. The App is also a PWA (Progressive Web App) which means it can be deployed as a standalone Mobile App and behave as a native App on a Mobile device.
 
 A few things to note
 - there is very little CSS in the App
@@ -175,4 +175,54 @@ and is "injected" into a Component that wishes to "observe" it, example, /src/co
 export default inject((allStores) => ({ ...allStores }))(observer(ProductList))
 ```
 
+## PWA
+Progressive Web App uses modern web capabilities to deliver an app-like user experience to a Mobile device. Native mobile Apps do things like send push notifications, work offline, look and feel like an app, load on the homescreen, etc. Mobile Web Apps accessed in a mobile browser, by comparison, historically haven’t done those things. Progressive Web Apps fix that with new Web APIs and new design concepts.
+For more information on PWAs, visit https://developers.google.com/web/progressive-web-apps/ 
 
+Progressive Web Apps have the following characteristics:
+- Progressive - By definition, a progressive web app must work on any device and enhance progressively, taking advantage of any features available on the user’s device and browser.
+- Discoverable - Because a progressive web app is a website, it should be discoverable in search engines. This is a major advantage over native applications, which still lag behind websites in searchability.
+- Linkable - As another characteristic inherited from websites, a well-designed website should use the URI to indicate the current state of the application. This will enable the web app to retain or reload its state when the user bookmarks or shares the app’s URL.
+- Responsive - A progressive web app’s UI must fit the device’s form factor and screen size.
+- App-like - A progressive web app should look like a native app and be built on the application shell model, with minimal page refreshes.
+- Connectivity-independent. It should work in areas of low connectivity or offline (our favorite characteristic).
+- Re-engageable - Mobile app users are more likely to reuse their apps, and progressive web apps are intended to achieve the same goals through features such as push notifications.
+- Installable - A progressive web app can be installed on the device’s home screen, making it readily available.
+- Fresh - When new content is published and the user is connected to the Internet, that content should be made available in the app.
+- Safe - Because a progressive web app has a more intimate user experience and because all network requests can be intercepted through service workers, it is imperative that the app be hosted over HTTPS to prevent man-in-the-middle attacks. 
+
+To enable the App to be a PWA, the following is required
+- A public/manifest.json file - this file describes the App Shell, the icon for the App on the device's home screen and the entry point to the App
+- A build/serviceworker.js file - this file is auto created at build time (in the package.json file) using the npm package sw-precache
+```
+"build": "react-scripts build && sw-precache --config=sw-precache-config.js"
+```
+The sw-precache-config.js file specifies what files are to be cached on the Mobile device so that it can work offline, effectively all the files in the build folder (except the map files), ie., the CSS and JS files
+
+The manifest.json file needs to be included in the App as follows
+```
+public/index.html
+    <link rel="manifest" href="manifest.json">
+```
+This enables the App to be detected as a PWA by the Mobile OS
+
+The serviceworker.js needs to be registered in order to cache the App's JS and CSS files as follows
+```
+public/index.html
+<body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js')
+         .then(function() {
+            console.log('Service Worker Registered');
+          })
+         .catch(function(e) {
+            console.log('register error: %s', e); // "oh, no!"
+          });
+      }
+    </script>
+    <div id="root"></div>
+```
+## How do you know the PWA is setup properly
+- Go to https://pure-fjord-81149.herokuapp.com/, and open Google Chrome Developer tools Application tab to examine the App
+  - 
