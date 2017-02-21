@@ -41,7 +41,7 @@ To understand more about React/Mobx/Material Ui and how the demo was created, co
 
 ## Components
 - ReactJS: A set of NPM packages for building User Interfaces, for details go to https://facebook.github.io/react/ 
-- Mobx: An NPM package that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). In english, you create data models (Stores) for your data, make them "observable" and "inject" the the Stores into the Components in which you wish to use them. When a Store is updated, the "observing" components will rerender. For more details go to https://mobx.js.org/
+- Mobx: An NPM package that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). In english, you create data models (Stores) for your data, make them "observable" and "inject" the Stores into the Components in which you wish to use them. When a Store is updated, the "observing" components will rerender. For more details go to https://mobx.js.org/
 - Material UI: An NPM package of React Components that implement Google's Material Design. In summary its is a set of components to create Lists, Tables, Buttons, Dialogs, Grids, etc. See https://www.npmjs.com/package/material-ui and http://www.material-ui.com/#/components/app-bar (for the Components). Dont mix it up with https://material.io/, this is just a Google Design Site and not the implementation.
 
 ## Creating a React App
