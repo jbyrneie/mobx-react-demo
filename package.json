@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "mobx-react-demo",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -16,10 +16,11 @@
     "react-dom": "^15.4.2",
     "react-iframe": "0.0.4",
     "react-scripts": "^0.8.5",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-tap-event-plugin": "^2.0.1",
+    "sw-precache": "^5.0.0"
   },
   "scripts": {
-    "build": "react-scripts build",
+    "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "start": ". ./.env && per-env",
     "start:development": "react-scripts start",
     "start:production": "npm run build; bin/serve_static",
