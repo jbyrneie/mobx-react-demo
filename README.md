@@ -9,7 +9,7 @@ A few things to note
     {product.description}
   </div>
 ```
-- or define in-line css object, example
+- or define an in-line css object, example
 ```
   const styles = {button: {
                             margin: 12,
