@@ -190,3 +190,36 @@ Progressive Web Apps have the following characteristics:
 - Installable - A progressive web app can be installed on the device’s home screen, making it readily available.
 - Fresh - When new content is published and the user is connected to the Internet, that content should be made available in the app.
 - Safe - Because a progressive web app has a more intimate user experience and because all network requests can be intercepted through service workers, it is imperative that the app be hosted over HTTPS to prevent man-in-the-middle attacks. 
+
+To enable the App to be a PWA, the following is required
+- A public/manifest.json file - this file describes the App Shell, the icon for the App on the device's home screen and the entry point to the App
+- A build/serviceworker.js file - this file is auto created at build time (in the package.json file) using the npm package sw-precache
+```
+"build": "react-scripts build && sw-precache --config=sw-precache-config.js"
+```
+The sw-precache-config.js file specifies what files are to be cached on the Mobile device so that it can work offline, effectively all the files in the build folder (except the map files), ie., the CSS and JS files
+
+The manifest.json file needs to be included in the App as follows
+```
+public/index.html
+    <link rel="manifest" href="manifest.json">
+```
+This enables the App to be detected as a PWA by the Mobile OS
+
+The serviceworker.js needs to be registered in order to cache the App's JS and CSS files as follows
+```
+public/index.html
+<body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js')
+         .then(function() {
+            console.log('Service Worker Registered');
+          })
+         .catch(function(e) {
+            console.log('register error: %s', e); // "oh, no!"
+          });
+      }
+    </script>
+    <div id="root"></div>
+```
