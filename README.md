@@ -225,4 +225,6 @@ public/index.html
 ```
 ## How do you know the PWA is setup properly
 - Go to https://pure-fjord-81149.herokuapp.com/, and open Google Chrome Developer tools Application tab to examine the App
-  - 
+  - xx
+  
+![alt tag]https://github.com/jbyrneie/mobx-react-demo/blob/master/documentation/pwa.png)
