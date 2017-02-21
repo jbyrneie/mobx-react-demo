@@ -103,7 +103,7 @@ home: new Route({
   })
 ```
 
-To use routing, the App renders a MobxRouter Component instead of a React Component (\<App /\>), ie., src/index.js changes to
+To use routing, the App renders the React MobxRouter Component instead of a "regular" React Component (\<App /\>), ie., src/index.js changes to
 ```
 ReactDOM.render(
   <Provider store={store}>
