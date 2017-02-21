@@ -1,15 +1,15 @@
 # A demo PWA App written in React/Mobx/Material UI
-This repo is a simple App written in React, Mobx and Material UI. The App is also a PWA (Progressive Web App) which means it can be deployed as a standalone Mobile App and behave as a native App on a Mobile device.
+This repo is a simple PWA App written in React, Mobx and Material UI. The App is also a PWA (Progressive Web App) which means it can be deployed as a standalone Mobile App and behave as a native App on a Mobile device.
 
 A few things to note
-- there is very little CSS in the App
+- there is very little CSS in the App, most of it is inline or provided by default by Material UI
 - it is common practice to use in-line css, example
 ```
   <div style={{fontSize: '.95em', color: '#4e4e4e', fontFamily:'"Roboto", sans-serif'}}>
     {product.description}
   </div>
 ```
-- or define in-line css object, example
+- or define an in-line css object, example
 ```
   const styles = {button: {
                             margin: 12,
@@ -41,8 +41,8 @@ To understand more about React/Mobx/Material Ui and how the demo was created, co
 
 ## Components
 - ReactJS: A set of NPM packages for building User Interfaces, for details go to https://facebook.github.io/react/ 
-- Mobx: An NPM package that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). In english, you create data models (Stores) for your data, make them "observable" and "inject" the the Stores into the Components in which you wish to use them. When a Store is updated, the "observing" components will rerender. For more details go to https://mobx.js.org/
-- Material UI: An NPM package of React Components that implement Google's Material Design. In summary its is a set of components to create Lists, Tables, Buttons, Dialogs, Grids, etc. See https://www.npmjs.com/package/material-ui and http://www.material-ui.com/#/components/app-bar (for the Components). Dont mix it up with https://material.io/, this is just a Google Design Site and not the implementation.
+- Mobx: An NPM package that makes state management simple and scalable by transparently applying functional reactive programming (TFRP). In english, you create data models (Stores) for your data, make them "observable" and "inject" the Stores into the Components in which you wish to use them. When a Store is updated, the "observing" components will rerender. For more details go to https://mobx.js.org/
+- Material UI: An NPM package of React Components that implement Google's Material Design. In summary it is a set of components to create Lists, Tables, Buttons, Dialogs, Grids, etc. See https://www.npmjs.com/package/material-ui and http://www.material-ui.com/#/components/app-bar (for the Components). Dont mix it up with https://material.io/, this is just a Google Design Site and not the implementation.
 
 ## Creating a React App
 There is a good tutorial at https://github.com/facebookincubator/create-react-app, the following builds a standalone App. The nice thing is that it is built using Webpack and creates a boilerplate App. Have a look at the package.json file, you will see scripts to start the App in "Dev" mode or build the App for "Production"
@@ -103,7 +103,7 @@ home: new Route({
   })
 ```
 
-To use routing, the App renders a MobxRouter Component instead of a React Component (\<App /\>), ie., src/index.js changes to
+To use routing, the App renders the React MobxRouter Component instead of a "regular" React Component (\<App /\>), ie., src/index.js changes to
 ```
 ReactDOM.render(
   <Provider store={store}>
@@ -224,5 +224,9 @@ public/index.html
     <div id="root"></div>
 ```
 ## How do you know the PWA is setup properly
-- Go to https://pure-fjord-81149.herokuapp.com/, and open Google Chrome Developer tools Application tab to examine the App
-  - 
+- Go to https://pure-fjord-81149.herokuapp.com/, and open Google Chrome Developer tools Application tab to examine the App, you will see
+  - the Manifest details, consisting of the App Name, starting url, icons for various device sizes, etc
+  - the Serviceworker, the file sources and its status
+  - the Cache Storage name and the list of files cached as specified in sw-precache-config.js
+  
+![alt tag](https://github.com/jbyrneie/mobx-react-demo/blob/master/documentation/pwa.png)
