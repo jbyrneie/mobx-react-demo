@@ -230,3 +230,4 @@ public/index.html
   - the Cache Storage name and the list of files cached as specified in sw-precache-config.js
   
 ![alt tag](https://github.com/jbyrneie/mobx-react-demo/blob/master/documentation/pwa.png)
+
