@@ -14,7 +14,7 @@ class ProductList extends Component {
   }
 
   render() {
-    console.log('ProductList render....')
+    console.log('ProductList render...')
 
     return (
       <div>
