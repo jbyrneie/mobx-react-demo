@@ -21,8 +21,6 @@ const views = {
     path: '/product',
     component: <ProductDetails/>,
     beforeEnter: (route, params, store) => {
-      const path = window.location.pathname.split('/')
-      const desiredProjectId = path[path.length-1]
     }
   }),
   products: new Route({

@@ -4,14 +4,9 @@ import _ from 'lodash';
 class ProductsStore {
   constructor() {
     extendObservable(this, {
-      title: 'MyStore Title Default',
       products: []
     });
   }
-
-  setTitle = action(title => {
-    this.title = title;
-  });
 
   addProduct = action(product => {
     this.products.push(product)
@@ -24,7 +19,24 @@ class ProductsStore {
     return product
   });
 
+  deleteProduct = action(index => {
+    let products = this.products
+    products.splice(index, 1)
+    this.products = products
+
+    localStorage.setItem('products', JSON.stringify(products))
+
+    if (products.length === 0)
+      this.getProductList()
+  });
+
   getProductList = action(() => {
+    let products = localStorage.getItem('products')
+    products = JSON.parse(products)
+
+    if (products && products.length > 0)
+      return this.products = products
+
     this.products = [{id:1, title:'Product 1', description:'A very long description for Product1. A very long description for Product1. A very long description for Product1. A very long description for Product1. A very long description for Product1. A very long description for Product1.'},
                      {id:2, title:'Product 2', description:'Product2 description'},
                      {id:3, title:'Product 3', description:'Product3 description'},

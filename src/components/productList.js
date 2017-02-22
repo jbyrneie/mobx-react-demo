@@ -3,7 +3,7 @@ import {observer, inject} from 'mobx-react';
 import _ from 'lodash';
 import { List } from 'material-ui/List'
 import Divider from 'material-ui/Divider'
-import ProductDetails from './productSummary'
+import ProductSummary from './productSummary'
 import AppBar from './appBar'
 import '../products.css'
 
@@ -14,7 +14,7 @@ class ProductList extends Component {
   }
 
   render() {
-    const {store} = this.props;
+    console.log('ProductList render.....')
 
     return (
       <div>
@@ -26,7 +26,7 @@ class ProductList extends Component {
                 _.uniqBy(this.props.store.productsStore.products, 'id').map( (p,i) => {
                   return (
                     <div key={p.id}>
-                      <ProductDetails product={p} index={i}/>
+                      <ProductSummary product={p} index={i}/>
                       <Divider/>
                     </div>
                   )
