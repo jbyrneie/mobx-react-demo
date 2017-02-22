@@ -6,7 +6,7 @@ module.exports = {
     'build/static/**/!(*map*)'
   ],
   "runtimeCaching": [{
-    "urlPattern": "./service-worker.js",
+    "urlPattern": "service-worker.js",
     "handler": "networkFirst"
   }],
   dontCacheBustUrlsMatching: /\.\w{8}\./,
