@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
-import RaisedButton from 'material-ui/RaisedButton';
+import ActionZoomIn from 'material-ui/svg-icons/action/zoom-in';
+import ActionDelete from 'material-ui/svg-icons/action/delete';
 import _ from 'lodash';
 import { ListItem } from 'material-ui/List'
-import {white, grey400, lightBlueA400} from 'material-ui/styles/colors';
+import {grey400, lightBlueA400} from 'material-ui/styles/colors';
 import views from '../views'
 
 class ProductSummary extends Component {
@@ -20,7 +21,6 @@ class ProductSummary extends Component {
   render() {
     console.log('ProductSummary render.....')
     const product = this.props.product
-
     const actionsStyle = {
       display:'flex',
       width:'auto',
@@ -34,17 +34,20 @@ class ProductSummary extends Component {
       borderLeftColor: '#eee',
       paddingLeft:15
     }
-
+    const iconStyles = {
+      marginRight: 20,
+      marginBottom: 30
+    };
     const rightActions = <div style={actionsStyle}>
-                            <RaisedButton label="Details" onClick={this.details.bind(this)} style={{marginLeft:8, marginBottom:18}} labelColor={white} backgroundColor={lightBlueA400}/>
-                            <RaisedButton label="Delete" onClick={this.delete.bind(this)} style={{marginLeft:8, marginBottom:18}} labelColor={white} backgroundColor={grey400}/>
+                            <ActionZoomIn style={iconStyles} color={lightBlueA400} onClick={this.details.bind(this)} />
+                            <ActionDelete style={iconStyles} color={grey400} onClick={this.delete.bind(this)} />
                         </div>
 
     return (
       <div>
         <ListItem
-          primaryText={<div onClick={this.details.bind(this)} style={{paddingRight:200}}>{product.title}</div>}
-          secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:200}}>{product.description}</div>}
+          primaryText={<div onClick={this.details.bind(this)} style={{paddingRight:100}}>{product.title}</div>}
+          secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:100}}>{product.description}</div>}
           secondaryTextLines={2}
           rightIcon={rightActions}
         />

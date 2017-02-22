@@ -24,16 +24,7 @@ class TitleBar extends Component {
       </SvgIcon>
     );
 
-/*
-    let leftIcon = <IconButton>
-                    <FontIcon
-                      className="muidocs-icon-action-home"
-                    />
-                  </IconButton>
-*/
     let leftIcon = <IconButton><HomeIcon style={iconStyles} /></IconButton>
-
-    //let leftIcon = <IconButton><Menu /></IconButton>
     if (this.props.backArrow)
       leftIcon = <IconButton><ArrowBack /></IconButton>
 
