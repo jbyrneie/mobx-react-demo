@@ -5,7 +5,8 @@ class ProductsStore {
   constructor() {
     extendObservable(this, {
       products: [],
-      showDeleteSnackBar: false
+      showDeleteSnackBar: false,
+      productTitle:''
     });
   }
 
@@ -23,10 +24,13 @@ class ProductsStore {
   deleteProduct = action(index => {
     this.showDeleteSnackBar = true
     let products = this.products
-    products.splice(index, 1)
-    this.products = products
 
-    localStorage.setItem('products', JSON.stringify(products))
+    if (products.length > 0) {
+      this.productTitle = products[index].title
+      products.splice(index, 1)
+      this.products = products
+      localStorage.setItem('products', JSON.stringify(products))
+    }
 
     if (products.length === 0)
       this.getProductList()

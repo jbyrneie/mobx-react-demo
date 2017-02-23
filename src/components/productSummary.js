@@ -47,7 +47,7 @@ class ProductSummary extends Component {
                             <ActionZoomIn style={iconStyles} color={lightBlueA400} onClick={this.details.bind(this)} />
                             <ActionDelete style={iconStyles} color={blueGrey600} onClick={this.delete.bind(this)} />
                         </div>
-
+    const deletedMessage = this.props.store.productsStore.productTitle + " deleted"
     return (
       <div>
         <ListItem
@@ -57,9 +57,9 @@ class ProductSummary extends Component {
           rightIcon={rightActions}
         />
 
-      <Snackbar
+        <Snackbar
           open={this.props.store.productsStore.showDeleteSnackBar}
-          message="Product deleted"
+          message={deletedMessage}
           autoHideDuration={4000}
           onRequestClose={this.handleRequestClose}
         />
