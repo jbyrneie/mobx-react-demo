@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {observer, inject} from 'mobx-react';
+import Snackbar from 'material-ui/Snackbar';
 import ActionZoomIn from 'material-ui/svg-icons/action/zoom-in';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 import _ from 'lodash';
@@ -16,6 +17,10 @@ class ProductSummary extends Component {
 
   delete(event) {
     this.props.store.productsStore.deleteProduct(this.props.index)
+  }
+
+  haideSnackBar(event) {
+    this.props.store.productsStore.showDeleteSnackBar(false)
   }
 
   render() {
@@ -50,6 +55,13 @@ class ProductSummary extends Component {
           secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:60}}>{product.description}</div>}
           secondaryTextLines={2}
           rightIcon={rightActions}
+        />
+
+      <Snackbar
+          open={this.props.store.productsStore.showDeleteSnackBar}
+          message="Product deleted"
+          autoHideDuration={4000}
+          onRequestClose={this.handleRequestClose}
         />
       </div>
     );

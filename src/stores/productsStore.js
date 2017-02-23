@@ -4,7 +4,8 @@ import _ from 'lodash';
 class ProductsStore {
   constructor() {
     extendObservable(this, {
-      products: []
+      products: [],
+      showDeleteSnackBar: false
     });
   }
 
@@ -20,6 +21,7 @@ class ProductsStore {
   });
 
   deleteProduct = action(index => {
+    this.showDeleteSnackBar = true
     let products = this.products
     products.splice(index, 1)
     this.products = products
