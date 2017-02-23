@@ -30,10 +30,15 @@
       if ('serviceWorker' in navigator) {
         var options = null;
         navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-          registration.update(); // For check for update
+           // For check for update
+          registration.update().then(function(status, error) {
+            console.log('update status: %s error: %s', status, error)
+          });
+
           if (registration.active) {
             console.log('Service Worker already installed.');
           }
+
           registration.onupdatefound = function() {
             console.log('A new Service Worker version has been found...');
             var installingWorker = registration.installing;
