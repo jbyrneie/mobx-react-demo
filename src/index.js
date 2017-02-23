@@ -19,6 +19,7 @@ import './index.css'
 
 startRouter(views, store);
 
+/*
 if ('serviceWorker' in navigator) {
   var options = null;
   navigator.serviceWorker.register('./service-worker.js', options).then(function(registration) {
@@ -32,41 +33,12 @@ if ('serviceWorker' in navigator) {
         switch (installingWorker.state) {
           case 'installed':
             if (navigator.serviceWorker.controller) {
-/*
-              this.fire('notify', {
-                icon: 'update',
-                message: 'new-version-app',
-                buttonText: 'refresh',
-                buttonTapHandler: function() { // Handler for app-snackbar _onButtonTap
-                  window.location.reload();
-                },
-                duration: 0 // Duration 0 indications shows the app-snackbar indefinitely.
-              });
-*/
               console.log('The Service Worker was updated. Reload page for the new version.');
             } else {
-/*
-              this.fire('notify', {
-                type: 'confirm',
-                icon: 'cached',
-                message: 'caching-complete'
-              });
-*/
               console.log('A new Service Worker was installed.');
             }
           break;
           case 'redundant':
-/*
-            this.fire('notify', {
-              icon: 'update',
-              message: 'new-version-app',
-              buttonText: 'refresh',
-              buttonTapHandler: function() { // Handler for app-snackbar _onButtonTap
-                window.location.reload();
-              },
-              duration: 0 // Duration 0 indications shows the app-snackbar indefinitely.
-            });
-*/
             this._trackError('The installing Service Worker became redundant. Reload page for the new version.');
           break;
           default:
@@ -76,6 +48,7 @@ if ('serviceWorker' in navigator) {
     }
   })
 }
+*/
 
 ReactDOM.render(
   <Provider store={store}>
