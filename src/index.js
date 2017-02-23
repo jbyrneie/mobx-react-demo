@@ -18,7 +18,7 @@ import views from './views';
 import './index.css'
 
 startRouter(views, store);
-
+/*
 if ('serviceWorker' in navigator) {
   var options = null;
   navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
@@ -48,7 +48,7 @@ if ('serviceWorker' in navigator) {
     }
   })
 }
-
+*/
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>
