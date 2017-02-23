@@ -54,7 +54,10 @@
               }
             }
           }
-        })
+        }).catch(function(error) {
+          // registration failed
+          console.log('Service Worker Registration failed with ' + error);
+        });
       }
     </script>
     <div id="root"></div>
