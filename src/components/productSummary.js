@@ -46,8 +46,8 @@ class ProductSummary extends Component {
     return (
       <div>
         <ListItem
-          primaryText={<div onClick={this.details.bind(this)} style={{paddingRight:100}}>{product.title}</div>}
-          secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:100}}>{product.description}</div>}
+          primaryText={<div onClick={this.details.bind(this)} style={{paddingRight:60}}>{product.title}</div>}
+          secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:60}}>{product.description}</div>}
           secondaryTextLines={2}
           rightIcon={rightActions}
         />
