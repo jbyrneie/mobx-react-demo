@@ -35,7 +35,7 @@ class ProductSummary extends Component {
       paddingLeft:15
     }
     const iconStyles = {
-      marginRight: 20,
+      marginRight: 8,
       marginBottom: 30
     };
     const rightActions = <div style={actionsStyle}>
@@ -44,10 +44,10 @@ class ProductSummary extends Component {
                         </div>
 
     return (
-      <div id="class">
+      <div>
         <ListItem
-          primaryText={<div onClick={this.details.bind(this)} style={{paddingRight:100}}>{product.title}</div>}
-          secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:100}}>{product.description}</div>}
+          primaryText={<div onClick={this.details.bind(this)} style={{paddingRight:40}}>{product.title}</div>}
+          secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:40}}>{product.description}</div>}
           secondaryTextLines={2}
           rightIcon={rightActions}
         />
