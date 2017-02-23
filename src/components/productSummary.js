@@ -40,7 +40,7 @@ class ProductSummary extends Component {
     };
     const rightActions = <div style={actionsStyle}>
                             <ActionZoomIn style={iconStyles} color={lightBlueA400} onClick={this.details.bind(this)} />
-                            <ActionDelete style={iconStyles} color={grey400} onClick={this.delete.bind(this)} />
+                            <ActionDelete style={iconStyles} color={lightBlueA400} onClick={this.delete.bind(this)} />
                         </div>
 
     return (
