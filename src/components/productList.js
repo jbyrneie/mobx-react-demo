@@ -40,5 +40,4 @@ class ProductList extends Component {
   }
 }
 
-//export default observer(['store'], ProductList);
 export default inject((allStores) => ({ ...allStores }))(observer(ProductList))

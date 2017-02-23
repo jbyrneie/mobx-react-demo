@@ -56,5 +56,4 @@ class ProductSummary extends Component {
   }
 }
 
-//export default observer(['store'], ProductSummary);
 export default inject((allStores) => ({ ...allStores }))(observer(ProductSummary))
