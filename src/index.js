@@ -31,8 +31,8 @@ if ('serviceWorker' in navigator) {
       installingWorker.onstatechange = function() {
         switch (installingWorker.state) {
           case 'installed':
-/*
             if (navigator.serviceWorker.controller) {
+/*
               this.fire('notify', {
                 icon: 'update',
                 message: 'new-version-app',
