@@ -4,7 +4,7 @@ import ActionZoomIn from 'material-ui/svg-icons/action/zoom-in';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 import _ from 'lodash';
 import { ListItem } from 'material-ui/List'
-import {grey400, lightBlueA400} from 'material-ui/styles/colors';
+import {blueGrey600, lightBlueA400} from 'material-ui/styles/colors';
 import views from '../views'
 
 class ProductSummary extends Component {
@@ -40,7 +40,7 @@ class ProductSummary extends Component {
     };
     const rightActions = <div style={actionsStyle}>
                             <ActionZoomIn style={iconStyles} color={lightBlueA400} onClick={this.details.bind(this)} />
-                            <ActionDelete style={iconStyles} color={grey400} onClick={this.delete.bind(this)} />
+                            <ActionDelete style={iconStyles} color={blueGrey600} onClick={this.delete.bind(this)} />
                         </div>
 
     return (
