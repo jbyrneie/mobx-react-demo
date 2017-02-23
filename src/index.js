@@ -18,37 +18,6 @@ import views from './views';
 import './index.css'
 
 startRouter(views, store);
-/*
-if ('serviceWorker' in navigator) {
-  var options = null;
-  navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
-    registration.update(); // For check for update
-    if (registration.active) {
-      console.log('Service Worker already installed.');
-    }
-    registration.onupdatefound = function() {
-      console.log('A new Service Worker version has been found...');
-      var installingWorker = registration.installing;
-      installingWorker.onstatechange = function() {
-        switch (installingWorker.state) {
-          case 'installed':
-            if (navigator.serviceWorker.controller) {
-              console.log('The Service Worker was updated. Reload page for the new version.');
-            } else {
-              console.log('A new Service Worker was installed.');
-            }
-          break;
-          case 'redundant':
-            this._trackError('The installing Service Worker became redundant. Reload page for the new version.');
-          break;
-          default:
-            console.log("New Service Worker state: ", installingWorker.state);
-        }
-      }
-    }
-  })
-}
-*/
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>

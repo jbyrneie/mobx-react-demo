@@ -31,8 +31,8 @@
         var options = null;
         navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
            // For check for update
-          registration.update().then(function(status, error) {
-            console.log('update status: %s error: %s', status, error)
+          registration.update().then(function() {
+            console.log('serviceWorker update done...')
           });
 
           if (registration.active) {
