@@ -22,6 +22,7 @@ startRouter(views, store);
 if ('serviceWorker' in navigator) {
   var options = null;
   navigator.serviceWorker.register('./service-worker.js').then(function(registration) {
+    registration.update(); // For check for update
     if (registration.active) {
       console.log('Service Worker already installed.');
     }
