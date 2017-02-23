@@ -40,14 +40,14 @@ class ProductSummary extends Component {
     };
     const rightActions = <div style={actionsStyle}>
                             <ActionZoomIn style={iconStyles} color={lightBlueA400} onClick={this.details.bind(this)} />
-                            <ActionDelete style={iconStyles} color={lightBlueA400} onClick={this.delete.bind(this)} />
+                            <ActionDelete style={iconStyles} color={grey400} onClick={this.delete.bind(this)} />
                         </div>
 
     return (
       <div>
         <ListItem
-          primaryText={<div onClick={this.details.bind(this)} style={{paddingRight:40}}>{product.title}</div>}
-          secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:40}}>{product.description}</div>}
+          primaryText={<div onClick={this.details.bind(this)} style={{paddingRight:80}}>{product.title}</div>}
+          secondaryText={<div onClick={this.details.bind(this)} style={{paddingRight:80}}>{product.description}</div>}
           secondaryTextLines={2}
           rightIcon={rightActions}
         />
