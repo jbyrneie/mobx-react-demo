@@ -19,6 +19,7 @@ A few things to note
 - components and css are imported rather than included
 - webpack runs in the background and rebuilds the App in dev mode when files are changed
 - the 'npm run build' task creates a build/ folder, optimizes and minifies the code and creates one JS and CSS file for the App
+- the JS and CSS files have a hash included in their name (example, main.992d8cfe.js) to prevent stale caching
 
 ## To run the demo
 ```sh
@@ -199,6 +200,11 @@ To enable the App to be a PWA, the following is required
 ```
 The sw-precache-config.js file specifies what files are to be cached on the Mobile device so that it can work offline, effectively all the files in the build folder (except the map files), ie., the CSS and JS files
 
+The build/serviceworker.js file defines and object called precacheConfig which lists all the files to be cached. Each file has an asoociated hash value which is used to determine if the file has changed and whether the Mobile Device cache needs to be invalidated.
+```
+var precacheConfig = [["index.html","145091d983a43281a75be7a1c8d00fff"],["manifest.json","0b78304f4e7db378fcc811549e7b6074"],["static/css/main.f1a78091.css","68b67d9d0a5b98fa07f00cb03762c22c"],["static/js/main.992d8cfe.js","c5d9dd1873216dc3f09e91f5c94c539f"]]
+```
+
 The manifest.json file needs to be included in the App as follows
 ```
 public/index.html
@@ -212,13 +218,41 @@ public/index.html
 <body>
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./service-worker.js')
-         .then(function() {
-            console.log('Service Worker Registered');
-          })
-         .catch(function(e) {
-            console.log('register error: %s', e); // "oh, no!"
+        var options = null;
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+           // For check for update
+          registration.update().then(function() {
+            console.log('serviceWorker update done...')
           });
+
+          if (registration.active) {
+            console.log('Service Worker already installed.');
+          }
+
+          registration.onupdatefound = function() {
+            console.log('A new Service Worker version has been found...');
+            var installingWorker = registration.installing;
+            installingWorker.onstatechange = function() {
+              switch (installingWorker.state) {
+                case 'installed':
+                  if (navigator.serviceWorker.controller) {
+                    console.log('The Service Worker was updated. Reload page for the new version.');
+                  } else {
+                    console.log('A new Service Worker was installed.');
+                  }
+                break;
+                case 'redundant':
+                  this._trackError('The installing Service Worker became redundant. Reload page for the new version.');
+                break;
+                default:
+                  console.log("New Service Worker state: ", installingWorker.state);
+              }
+            }
+          }
+        }).catch(function(error) {
+          // registration failed
+          console.log('Service Worker Registration failed with ' + error);
+        });
       }
     </script>
     <div id="root"></div>
