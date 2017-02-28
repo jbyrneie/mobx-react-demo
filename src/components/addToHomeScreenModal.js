@@ -71,6 +71,7 @@ class AddToHomeScreenModal extends React.Component {
           actions={actions}
           modal={true}
           open={this.state.open}
+          autoScrollBodyContent={true}
         >
           <p>
           For a better experience, why not add the App to your Home Screen. Doing so will enable the App to behave like a native App.
