@@ -52,12 +52,12 @@ class AddToHomeScreenModal extends React.Component {
   render() {
     const actions = [
       <RaisedButton
-        label="Dont Show Me Again"
+        label="Dont Show"
         primary={true}
         onTouchTap={this.dontShowMeAgain}
       />,
       <RaisedButton
-        label="Show Me Again"
+        label="Show Again"
         primary={true}
         onTouchTap={this.showMeAgain}
         style={{marginLeft:15}}
