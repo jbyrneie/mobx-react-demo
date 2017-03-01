@@ -17,6 +17,17 @@ import views from './views';
 
 import './index.css'
 
+// Defer PWA install prompt until a "good" experience occurs
+window.addEventListener('beforeinstallprompt', function(e) {
+  console.log('beforeinstallprompt Event fired');
+  e.preventDefault();
+
+  // Stash the event so it can be triggered later.
+  stores.appStore.setDeferredPrompt(e);
+
+  return false;
+});
+
 startRouter(views, store);
 ReactDOM.render(
   <Provider store={store}>
