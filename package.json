@@ -21,7 +21,7 @@
     "sw-precache": "5.0.0"
   },
   "scripts": {
-    "build": "react-scripts build;",
+    "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "start": "per-env",
     "start:development": ". ./.env; react-scripts start",
     "start:production": "npm run build; bin/serve_static",
