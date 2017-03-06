@@ -1,4 +1,4 @@
-var cacheName = 'mobx.react.demo-v3'
+var cacheName = 'mobx.react.demo-v4'
 var filesToCache = [
   '/index.html',
   '/static/js/*.js',
