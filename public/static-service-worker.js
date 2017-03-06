@@ -1,6 +1,5 @@
 var cacheName = 'mobx.react.demo-v1';
 var filesToCache = [
-  '/',
   '/index.html',
   '/static/js/*.js',
   '/static/css/*.css',
