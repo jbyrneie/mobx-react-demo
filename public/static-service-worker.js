@@ -1,4 +1,4 @@
-var cacheName = 'mobx.react.demo-v8'
+var cacheName = 'mobx.react.demo-v9'
 var filesToCache = [
   '/index.html',
   '/static/js/*.js',
@@ -18,6 +18,7 @@ self.addEventListener('install', function(e) {
 
 self.addEventListener('activate', function(e) {
   console.log('[ServiceWorker] Activate');
+  console.log('caches: %s', JSON.stringify(caches))
   e.waitUntil(
     caches.keys().then(function(keyList) {
       return Promise.all(keyList.map(function(key) {
