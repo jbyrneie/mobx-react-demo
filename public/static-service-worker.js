@@ -1,4 +1,4 @@
-var cacheName = 'mobx.react.demo-v6'
+var cacheName = 'mobx.react.demo-v7'
 var filesToCache = [
   '/index.html',
   '/static/js/*.js',
@@ -36,6 +36,7 @@ self.addEventListener('fetch', function(e) {
     caches.match(e.request).then(function(response) {
       if (response)
         console.log('using cache for: %s', e.request)
+      else console.log('NOT using cache for: %s response: %s', e.request, response)
       return response || fetch(e.request);
     })
   );
