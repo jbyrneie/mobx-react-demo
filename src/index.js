@@ -26,11 +26,10 @@ window.addEventListener('beforeinstallprompt', function(e) {
   e.preventDefault();
 
   // Stash the event so it can be triggered later.
-  stores.appStore.setDeferredPrompt(e);
+  store.appStore.setDeferredPrompt(e);
 
   return false;
 });
-
 
 startRouter(views, store);
 ReactDOM.render(
