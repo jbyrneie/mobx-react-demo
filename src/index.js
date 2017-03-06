@@ -26,7 +26,7 @@ window.addEventListener('beforeinstallprompt', function(e) {
   e.preventDefault();
 
   // Stash the event so it can be triggered later.
-  //stores.appStore.setDeferredPrompt(e);
+  stores.appStore.setDeferredPrompt(e);
 
   return false;
 });
