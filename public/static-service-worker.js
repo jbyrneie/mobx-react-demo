@@ -1,9 +1,9 @@
-var cacheName = 'mobx.react.demo-v9'
+var cacheName = 'mobx.react.demo-v10'
 var filesToCache = [
-  '/index.html',
-  '/static/js/*.js',
-  '/static/css/*.css',
-  '/images/icons/*.png'
+  'index.html',
+  'static/js/*.js',
+  'static/css/*.css',
+  'images/icons/*.png'
 ];
 
 self.addEventListener('install', function(e) {
