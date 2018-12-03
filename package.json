@@ -27,5 +27,8 @@
     "start:production": "npm run build; bin/serve_static",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": "6.9.2"
   }
 }
