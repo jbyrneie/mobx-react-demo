@@ -31,6 +31,7 @@ The demo is deployed to Heroku and can be accessed at https://pure-fjord-81149.h
 git clone https://github.com/jbyrneie/mobx-react-demo.git
 
 cd mobx-react-demo
+nvm use 6.9.2
 npm install
 
 ** Ensure NODE_ENV=development in .env file
